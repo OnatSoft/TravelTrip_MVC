@@ -1,0 +1,58 @@
+﻿@model TravelTrip_MVCProject.Models.Classes.BlogYorum
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<!--****** BURASI BLOG SAYFASI ******-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="~/web-blog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web-blog/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                @foreach (var s in Model.blogValue)
+                {
+                    <div class="single-grid">
+                        <a href="/blog/BlogDetail/@s.ID"><img src="@s.BlogFoto" alt="" /></a>
+                        <p style="margin-bottom:18px"> @s.Tarih </p>
+                        <h1><a href="/blog/BlogDetail/@s.ID"> @s.Baslik </a></h1>
+                        <p style="margin-bottom:24px"> @s.Aciklama </p>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3> Son 3 Blog </h3>
+                    @foreach (var y in Model.recentBlog)
+                    {
+                        <ul>
+                            <li><a href="/blog/BlogDetail/@y.ID"> @y.Baslik </a></li>
+                        </ul>
+                    }
+                </div>
+                <div class="comments">
+                    <h3> Son 5 Yorum </h3>
+                    <ul>
+                        <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
+                        <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
+                        <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

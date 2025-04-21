@@ -1,0 +1,21 @@
+﻿@using TravelTrip_MVCProject.Models.Classes
+@model List<HakkimizdaTBL>
+    
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<!--****** BURASI HAKKIMIZDA SAYFASI ******-->
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3> Biz Kimiz, Ne Yapıyoruz? </h3>
+            @foreach (var a in Model)
+            {
+                <img src="@a.FotoUrl" alt="About Image" />
+                <p> @a.Aciklama </p>
+            }
+        </div>
+    </div>
+</div>
