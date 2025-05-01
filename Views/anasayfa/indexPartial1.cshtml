@@ -1,0 +1,25 @@
+﻿@using TravelTrip_MVCProject.Models.Classes
+@model List<BlogTBL>
+
+<!--** BURASI ANASAYFA CONTROLLERDA OLUŞTURDUĞUM 1. PARTIAL VIEW **-->
+
+<div class="padding1">
+    <h4> Son Yayınlanan Yazılar </h4>
+    <div class="box-left">
+        @foreach (var blogList in Model)
+        {
+            <a href="/blog/BlogDetail/@blogList.ID" title="@blogList.Baslik" target="_blank">
+                <h5 style="margin-bottom: 6px;"> @blogList.Baslik </h5>
+                <div class="bot-img" style="width: 120px; height: 73px;">
+                    <img src="@blogList.BlogFoto" alt="" />
+                </div>
+                <div class="bot-desc">
+                    <p>@blogList.Aciklama.Substring(0, blogList.Aciklama.Substring(0, 80).LastIndexOf(" ")) ...</p>
+                </div>
+            </a>
+            <div class="clear"></div>
+        }
+    </div>
+
+    @Html.Action("indexPartial2", "anasayfa")
+</div>

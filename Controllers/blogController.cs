@@ -28,7 +28,7 @@ namespace TravelTrip_MVCProject.Controllers
             //* BlogYorum sınıfından gelen interface değeri ile ID'ye göre ilgili blogları ve yorumları açma.
             by.blogValue = c.BlogTBLs.Where(x => x.ID == id).ToList();
             by.yorumValue = c.YorumlarTBLs.Where(x => x.Blogid == id).ToList();
-            by.recentBlog = c.BlogTBLs.OrderByDescending(x=>x.Tarih).Take(3).ToList();
+            by.recentBlog = c.BlogTBLs.OrderByDescending(x => x.Tarih).Take(3).ToList();
             return View(by);
         }
     }

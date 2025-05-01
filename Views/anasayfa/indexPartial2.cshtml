@@ -1,0 +1,19 @@
+﻿@using TravelTrip_MVCProject.Models.Classes
+@model List<BlogTBL>
+
+
+<div class="box1-left">
+    @foreach (var b in Model)
+    {
+        <a href="/blog/BlogDetail/@b.ID" title="@b.Baslik" target="_blank">
+            <h5 style="margin-bottom: 6px;"> @b.Baslik </h5>
+            <div class="bot-img">
+                <img src="@b.BlogFoto" alt="" />
+            </div>
+            <div class="bot-desc">
+                <p>@b.Aciklama.Substring(0, b.Aciklama.Substring(0, 80).LastIndexOf(" ")) ...</p>
+            </div>
+        </a>
+        <div class="clear"></div>
+    }
+</div>

@@ -258,6 +258,9 @@
     <Content Include="Views\anasayfa\Index.cshtml" />
     <Content Include="Views\blog\Index.cshtml" />
     <Content Include="Views\blog\BlogDetail.cshtml" />
+    <Content Include="Views\anasayfa\indexPartial1.cshtml" />
+    <Content Include="Views\anasayfa\partialViewTop10.cshtml" />
+    <Content Include="Views\anasayfa\indexPartial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

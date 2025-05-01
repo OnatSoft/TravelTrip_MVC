@@ -9,8 +9,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <link href="~/web-blog/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="~/web-blog/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Themes/web-blog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/Themes/web-blog/css/style.css" rel='stylesheet' type='text/css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -26,7 +26,7 @@
                 {
                     <div class="single-grid">
                         <img src="@s.BlogFoto" alt="Blog Image" />
-                        <p style="margin-bottom:18px"> @s.Tarih </p>
+                        <p style="margin-bottom:18px"> @s.Tarih.ToShortDateString() </p>
                         <h1> @s.Baslik </h1>
                         <p style="margin-bottom:24px"> @s.Aciklama </p>
                     </div>
@@ -36,7 +36,7 @@
                     @foreach (var y in Model.yorumValue)
                     {
                         <li>
-                            <img src="~/web-blog/images/avatar.png" class="img-responsive" alt="comment avatar photo">
+                            <img src="~/Themes/web-blog/images/avatar.png" class="img-responsive" alt="comment avatar photo">
                             <div class="comments">
                                 <p><b>@y.KullaniciAdi dedi ki: </b>@y.Yorum</p>
                             </div>

@@ -444,15 +444,15 @@ span.doller {
     }
 
 .box-left {
-    width: 301px;
+    width: 305px;
     float: left;
-    margin-right: 20px;
+    margin-right: 8px;
 }
 
 .box1-left {
-    width: 301px;
+    width: 305px;
     float: left;
-    margin-right: 0px;
+    margin-right: 8px;
 }
 
 .bot-img {
@@ -1118,11 +1118,10 @@ span.doller {
     .box-left {
         width: 100%;
         float: left;
-        margin-right: 0;
     }
 
     .box1-left {
-        width: 266px;
+        width: 100%;
     }
 
     .bot-desc1 {
