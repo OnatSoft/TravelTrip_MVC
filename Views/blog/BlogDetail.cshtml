@@ -26,34 +26,28 @@
                 {
                     <div class="single-grid">
                         <img src="@s.BlogFoto" alt="Blog Image" />
-                        <p style="margin-bottom:18px"> @s.Tarih.ToShortDateString() </p>
+                        <p style="margin-bottom:18px"> @s.Tarih.ToShortDateString() | Yazar: Admin | Kategorisiz </p>
                         <h1> @s.Baslik </h1>
                         <p style="margin-bottom:24px"> @s.Aciklama </p>
                     </div>
                 }
 
-                <ul class="comment-list">
-                    @foreach (var y in Model.yorumValue)
-                    {
-                        <li>
-                            <img src="~/Themes/web-blog/images/avatar.png" class="img-responsive" alt="comment avatar photo">
-                            <div class="comments">
-                                <p><b>@y.KullaniciAdi dedi ki: </b>@y.Yorum</p>
-                            </div>
-                        </li>
-                    }
-                </ul>
-
                 <div class="content-form">
-                    <h3> Bir Yorum Yaz </h3>
-                    <form>
-                        <input type="text" placeholder="İsim" required />
-                        <input type="text" placeholder="E-posta" required />
-                        <input type="text" placeholder="Web Site" />
-                        <textarea placeholder="Mesaj" required></textarea>
-                        <input value="Gönder" type="submit" />
-                    </form>
+                    <h3> Yazılan Yorumlar </h3>
+                    <ul class="comment-list">
+                        @foreach (var y in Model.yorumValue)
+                        {
+                            <li>
+                                <div class="comments">
+                                    <img src="~/Themes/web-blog/images/avatar.png" class="img-responsive" alt="comment avatar photo">
+                                    <p><b>@y.KullaniciAdi dedi ki: </b><br />@y.Yorum</p>
+                                </div>
+                            </li>
+                        }
+                    </ul>
                 </div>
+
+                @Html.Action("partialCommentAdd", "blog")
             </div>
 
             <div class="col-md-4 side-content">

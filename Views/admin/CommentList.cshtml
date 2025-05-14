@@ -1,0 +1,36 @@
+﻿@using TravelTrip_MVCProject.Models.Classes
+@model List<YorumlarTBL>
+
+@{
+    ViewBag.Title = "CommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2> Yorumlar </h2>
+<br />
+
+<table class="table table-bordered table-hover table-dark">
+    <tr>
+        <th> ID </th>
+        <th> İsim </th>
+        <th> E-posta </th>
+        <th> Yorum İçeriği </th>
+        <th> Yazılan Blog </th>
+        <th> İşlemler </th>
+    </tr>
+
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.ID</td>
+            <td>@y.KullaniciAdi</td>
+            <td>@y.Email</td>
+            <td>@y.Yorum</td>
+            <td>@y.Blog.Baslik</td>
+            <td>
+                <a href="/admin/DeleteComment/@y.ID" class="btn btn-danger process-btn"> Sil </a>
+                <a href="/admin/UpdateComment/@y.ID" class="btn btn-info process-btn"> Güncelle </a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Easy Trip - Admin Yönetim Paneli </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .process-btn{
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:12%;">
+        <h5 class="w3-bar-item" style="padding: 28px 16px 28px 16px;"> Hoşgeldin Onat.Soft </h5>
+        <a href="/admin/BlogList/" class="w3-bar-item w3-button"> Bloglar </a>
+        <a href="/admin/CommentList/" class="w3-bar-item w3-button"> Yorumlar </a>
+        <a href="#" class="w3-bar-item w3-button"> Gelen Kutusu </a>
+        <a href="/anasayfa/" target="_blank" class="w3-bar-item w3-button"> Siteye Git </a>
+        <a href="#" class="w3-bar-item w3-button"> Çıkış Yap </a>
+
+    </div>
+    <div style="margin-left:12%;">
+
+        <div class="w3-container w3-teal" style="padding: 12px; margin-bottom: 24px;">
+            <h1> Admin Yönetim Paneli </h1>
+        </div>
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</body>
+</html>

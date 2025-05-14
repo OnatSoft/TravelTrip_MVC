@@ -1,0 +1,27 @@
+﻿@model TravelTrip_MVCProject.Models.Classes.YorumlarTBL
+
+@{
+    ViewBag.Title = "UpdateComment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2> Yorum Güncelle </h2>
+<br />
+
+@using (Html.BeginForm("UpdateComment", "admin", FormMethod.Post))
+{
+    @Html.HiddenFor(y => y.ID)
+    <label class="form-label"> İsim </label>
+    @Html.TextBoxFor(y => y.KullaniciAdi, new { @class = "form-control", @required = "", @type="text" })
+    <br />
+    <label class="form-label"> E-posta </label>
+    @Html.TextBoxFor(y => y.Email, new { @class = "form-control", @required = "", @type="email" })
+    <br />
+    <label class="form-label"> Yorum </label>
+    @Html.TextAreaFor(y => y.Yorum, 5, 1, new { @class = "form-control", @required = "", @type="text" })
+    <br />
+    <div style="margin-bottom: 28px;">
+        <a class="btn btn-outline-secondary" href="/admin/CommentList"> İptal </a>
+        <button class="btn btn-success" type="submit"> Yorum Güncelle </button>
+    </div>
+}

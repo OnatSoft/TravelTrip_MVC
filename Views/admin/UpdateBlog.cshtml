@@ -1,0 +1,30 @@
+﻿@model TravelTrip_MVCProject.Models.Classes.BlogTBL
+
+@{
+    ViewBag.Title = "UpdateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2> Blog Güncelle </h2>
+<br />
+
+@using (Html.BeginForm("UpdateBlog", "admin", FormMethod.Post))
+{
+    @Html.HiddenFor(b => b.ID)
+    <label class="form-label"> Başlık </label>
+    @Html.TextBoxFor(b => b.Baslik, new { @class = "form-control", @required = "", @type = "text" })
+    <br />
+    <label class="form-label"> Blog Resmi </label>
+    @Html.TextBoxFor(b => b.BlogFoto, new { @class = "form-control", @required = "", @type = "text" })
+    <br />
+    <label class="form-label"> Tarih </label>
+    @Html.TextBoxFor(b => b.Tarih, new { @class = "form-control", @required = "", @type = "text" })
+    <br />
+    <label class="form-label"> Blog İçeriği </label>
+    @Html.TextAreaFor(b => b.Aciklama, 15, 1, new { @class = "form-control", @required = "", @type = "text" })
+    <br />
+    <div style="margin-bottom: 28px;">
+        <a class="btn btn-outline-secondary" href="/admin/BlogList"> İptal </a>
+        <button class="btn btn-success" type="submit"> Blog Güncelle </button>
+    </div>
+} 

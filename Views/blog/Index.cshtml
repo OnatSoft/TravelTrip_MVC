@@ -26,7 +26,7 @@
                 {
                     <div class="single-grid">
                         <a href="/blog/BlogDetail/@s.ID" target="_blank"><img src="@s.BlogFoto" alt="" /></a>
-                        <p style="margin-bottom:14px"> @s.Tarih.ToShortDateString() </p>
+                        <p style="margin-bottom:14px"> @s.Tarih.ToShortDateString() | Yazar: Admin | Kategorisiz </p>
                         <h1><a href="/blog/BlogDetail/@s.ID"> @s.Baslik </a></h1>
                         <p style="margin-bottom:28px"> @s.Aciklama.Substring(0, s.Aciklama.Substring(0, 350).LastIndexOf(" ")) ... Devamını okumak için tıkla. </p>
                     </div>

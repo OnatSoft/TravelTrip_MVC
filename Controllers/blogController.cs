@@ -31,5 +31,20 @@ namespace TravelTrip_MVCProject.Controllers
             by.recentBlog = c.BlogTBLs.OrderByDescending(x => x.Tarih).Take(3).ToList();
             return View(by);
         }
+
+        [HttpGet]
+        public PartialViewResult partialCommentAdd(int id)
+        {
+            ViewBag.blogID = id;
+            return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult partialCommentAdd(YorumlarTBL y)
+        {
+            c.YorumlarTBLs.Add(y);
+            c.SaveChanges();
+            return PartialView(y);
+        }
     }
 }

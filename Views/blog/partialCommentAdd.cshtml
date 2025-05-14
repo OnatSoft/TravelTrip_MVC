@@ -1,0 +1,14 @@
+﻿@model TravelTrip_MVCProject.Models.Classes.YorumlarTBL
+
+<!--*** BURASI YORUM GÖNDERME PARTIAL VIEW SAYFASI ***-->
+
+<div class="content-form">
+    <h3> Bir Yorum Yaz </h3>
+    <form method="post" class="form-group">
+        <input name="Blogid" value="@ViewBag.blogID" hidden />
+        <input type="text" class="form-control" placeholder="İsim" name="KullaniciAdi" style="margin-bottom: 10px" required />
+        <input type="email" class="form-control" placeholder="E-postanız" name="Email" style="margin-bottom: 10px" required />
+        <textarea placeholder="Yorumunuz" class="form-control" name="Yorum" required></textarea>
+        <input value="Yorum Gönder" type="submit" />
+    </form>
+</div>
