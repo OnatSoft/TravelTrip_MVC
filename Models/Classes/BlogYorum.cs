@@ -10,5 +10,6 @@ namespace TravelTrip_MVCProject.Models.Classes
         public IEnumerable<BlogTBL> blogValue { get; set; }
         public IEnumerable<BlogTBL> recentBlog { get; set; }
         public IEnumerable<YorumlarTBL> yorumValue { get; set; }
+        public IEnumerable<YorumlarTBL> recentComment { get; set; }
     }
 }

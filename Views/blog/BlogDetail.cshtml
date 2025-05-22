@@ -52,7 +52,7 @@
 
             <div class="col-md-4 side-content">
                 <div class="recent">
-                    <h3> Son 3 Blog </h3>
+                    <h4> Son 4 Yazı </h4>
                     @foreach (var b in Model.recentBlog)
                     {
                         <ul>
@@ -61,12 +61,13 @@
                     }
                 </div>
                 <div class="comments">
-                    <h3> Son 5 Yorum </h3>
-                    <ul>
-                        <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
-                        <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
-                        <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
-                    </ul>
+                    <h4> Son 3 Yorum </h4>
+                    @foreach (var y in Model.recentComment)
+                    {
+                        <ul>
+                            <li><a href="/blog/BlogDetail/@y.Blog.ID" title="İlgili Yazı: @y.Blog.Baslik"> @y.KullaniciAdi ziyaretçisinin yorumu:<br />@y.Yorum.Substring(0, y.Yorum.Substring(0, 50).LastIndexOf(" ")) ... </a></li>
+                        </ul>
+                    }
                 </div>
             </div>
         </div>

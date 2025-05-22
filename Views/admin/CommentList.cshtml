@@ -1,11 +1,14 @@
 ﻿@using TravelTrip_MVCProject.Models.Classes
-@model List<YorumlarTBL>
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<YorumlarTBL>
 
 @{
     ViewBag.Title = "CommentList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+    
 <h2> Yorumlar </h2>
 <br />
 
@@ -28,9 +31,11 @@
             <td>@y.Yorum</td>
             <td>@y.Blog.Baslik</td>
             <td>
-                <a href="/admin/DeleteComment/@y.ID" class="btn btn-danger process-btn"> Sil </a>
+                <a href="/admin/DeleteComment/@y.ID" class="btn btn-danger process-btn" onclick="return confirm('Bu yorumu kalıcı olarak silmekten emin misiniz?')"> Sil </a>
                 <a href="/admin/UpdateComment/@y.ID" class="btn btn-info process-btn"> Güncelle </a>
             </td>
         </tr>
     }
 </table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("CommentList", new { page = page }), new PagedListRenderOptions { LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LiElementClasses = new[] { "page-item" }, UlElementClasses = new[] { "pagination" } })

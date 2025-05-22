@@ -1,5 +1,8 @@
 ﻿@using TravelTrip_MVCProject.Models.Classes
-@model List<BlogTBL>
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<BlogTBL>
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +13,8 @@
 <br />
 
 <a href="/admin/AddNewBlog/" class="btn btn-primary"> Yeni Blog Ekle </a>
-<br /><br />
+<br />
+<br />
 
 <table class="table table-bordered table-hover table-dark">
     <tr>
@@ -26,10 +30,12 @@
             <td> @blog.Baslik </td>
             <td> @blog.Tarih.ToShortDateString() </td>
             <td>
-                <a href="/admin/DeleteBlog/@blog.ID" class="btn btn-danger process-btn"> Sil </a>
+                <a href="/admin/DeleteBlog/@blog.ID" class="btn btn-danger process-btn" onclick="return confirm('Bu yazıyı kalıcı olarak silmekten emin misiniz?')"> Sil </a>
                 <a href="/admin/UpdateBlog/@blog.ID" class="btn btn-info process-btn"> Güncelle </a>
                 <a href="/blog/BlogDetail/@blog.ID" target="_blank" class="btn btn-outline-light"> Detaylar </a>
             </td>
         </tr>
     }
 </table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("BlogList", new { page = page }), new PagedListRenderOptions { LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LiElementClasses = new[] { "page-item" }, UlElementClasses = new[] { "pagination" } })

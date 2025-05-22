@@ -1,20 +1,26 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TravelTrip_MVCProject.Models.Classes;
+using PagedList.Mvc;
 
 namespace TravelTrip_MVCProject.Controllers
 {
+    [Authorize]
     public class adminController : Controller
     {
         Context c = new Context();
+        iletisimTBL ilt = new iletisimTBL();
 
         /*** BLOGLAR KOMUTLARI ***/
-        public ActionResult BlogList()
+
+        public ActionResult BlogList(int page = 1)
         {
-            var values = c.BlogTBLs.ToList();
+            var values = c.BlogTBLs.ToList().ToPagedList(page, 5);
             return View(values);
         }
 
@@ -60,10 +66,10 @@ namespace TravelTrip_MVCProject.Controllers
         }
 
         /*** YORUMLAR KOMUTLARI ***/
-        public ActionResult CommentList()
+        public ActionResult CommentList(int page = 1)
         {
-            var yorumlar = c.YorumlarTBLs.ToList();
-            return View(yorumlar);
+            var val = c.YorumlarTBLs.ToList().ToPagedList(page, 5);
+            return View(val);
         }
 
         public ActionResult DeleteComment(int id)
@@ -90,6 +96,26 @@ namespace TravelTrip_MVCProject.Controllers
             yrm.Yorum = y.Yorum;
             c.SaveChanges();
             return RedirectToAction("CommentList");
+        }
+
+        public ActionResult Inbox()
+        {
+            ilt.messageValue = c.iletisimTBLs.ToList();
+            return View(ilt);
+        }
+
+        //public ActionResult MsgDetail(int id)
+        //{ => Mesaj içeriğini Popup Modal'da yazdırmak için Ajax ile alternatif yöntem.
+        //    var value = c.iletisimTBLs.Where(v => v.ID == id).Select(m => m.Mesaj).FirstOrDefault();
+        //    return Json(new { Mesaj = value }, JsonRequestBehavior.AllowGet);
+        //}
+
+        public ActionResult MessageDel(int id)
+        {
+            var value = c.iletisimTBLs.Find(id);
+            c.iletisimTBLs.Remove(value);
+            c.SaveChanges();
+            return RedirectToAction("Inbox");
         }
     }
 }

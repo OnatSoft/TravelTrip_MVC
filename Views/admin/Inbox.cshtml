@@ -1,0 +1,65 @@
+﻿@model TravelTrip_MVCProject.Models.Classes.iletisimTBL
+
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2> Gelen Kutusu </h2>
+<br />
+
+<table class="table table-bordered table-hover table-dark">
+    <tr>
+        <th> ID </th>
+        <th> Ad Soyad </th>
+        <th> E-posta </th>
+        <th> Telefon </th>
+        <th> İşlemler </th>
+    </tr>
+    @foreach (var ct in Model.messageValue)
+    {
+        var modalId = "DetayModal" + ct.ID;
+
+        <tr>
+            <td> @ct.ID </td>
+            <td> @ct.AdSoyad </td>
+            <td> @ct.Mail </td>
+            <td> @ct.Telefon </td>
+            <td>
+                <a href="/admin/MessageDel/@ct.ID" class="btn btn-danger process-btn" onclick="return confirm('Bu mesajı kalıcı olarak silmekten emin misiniz?')"> Sil </a>
+                <button type="button" class="btn btn-light btnDetail" data-id="@ct.ID" data-bs-toggle="modal" data-bs-target="#@modalId"> Detayı Gör </button>
+
+                <div class="modal fade" id="@modalId" aria-labelledby="modalLabel_@ct.ID" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalLabel_@ct.ID"><i class="bi bi-list"></i> @ct.ID Numaralı Mesaj İçeriği </h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                            </div>
+                            <div class="modal-body">
+                                @ct.Mesaj
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Kapat </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<!--* POPUP MODAL AÇMA YÖNTEMİ 2 (AJAX İLE) *-->
+@*<script>
+    $(document).on('click', '.btnDetail', function () {
+        var id = $(this).data('id');
+        $('#DetayModalBody').text('Yükleniyor...');
+        $.getJSON('/admin/MsgDetail/' + id, function (data) {
+            $('#DetayModalBody').text(data.Mesaj);
+        });
+    });
+</script>*@

@@ -16,7 +16,8 @@ namespace TravelTrip_MVCProject.Controllers
         {
             //var value = c.BlogTBLs.ToList();
             by.blogValue = c.BlogTBLs.ToList();
-            by.recentBlog = c.BlogTBLs.OrderByDescending(x => x.Tarih).Take(3).ToList();
+            by.recentBlog = c.BlogTBLs.OrderByDescending(x => x.Tarih).Take(4).ToList();
+            by.recentComment = c.YorumlarTBLs.OrderByDescending(y => y.ID).Take(3).ToList();
             return View(by);
         }
 
@@ -28,7 +29,8 @@ namespace TravelTrip_MVCProject.Controllers
             //* BlogYorum sınıfından gelen interface değeri ile ID'ye göre ilgili blogları ve yorumları açma.
             by.blogValue = c.BlogTBLs.Where(x => x.ID == id).ToList();
             by.yorumValue = c.YorumlarTBLs.Where(x => x.Blogid == id).ToList();
-            by.recentBlog = c.BlogTBLs.OrderByDescending(x => x.Tarih).Take(3).ToList();
+            by.recentBlog = c.BlogTBLs.OrderByDescending(b => b.Tarih).Take(4).ToList();
+            by.recentComment = c.YorumlarTBLs.OrderByDescending(y => y.ID).Take(3).ToList();
             return View(by);
         }
 
@@ -44,7 +46,7 @@ namespace TravelTrip_MVCProject.Controllers
         {
             c.YorumlarTBLs.Add(y);
             c.SaveChanges();
-            return PartialView(y);
+            return PartialView();
         }
     }
 }

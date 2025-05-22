@@ -58,6 +58,12 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -122,6 +128,7 @@
     <Compile Include="Controllers\blogController.cs" />
     <Compile Include="Controllers\hakkimizdaController.cs" />
     <Compile Include="Controllers\iletisimController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -163,6 +170,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -202,6 +210,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Themes\web-login\css\style.css" />
+    <Content Include="Themes\web-login\images\b4.jpg" />
+    <Content Include="Themes\web-login\index.html" />
+    <Content Include="Themes\web-login\w3layouts-License.txt" />
     <Content Include="Themes\web\about.html" />
     <Content Include="Themes\web\contact.html" />
     <Content Include="Themes\web\css\slider.css" />
@@ -282,6 +294,10 @@
     <Content Include="Views\blog\partialCommentAdd.cshtml" />
     <Content Include="Views\admin\CommentList.cshtml" />
     <Content Include="Views\admin\UpdateComment.cshtml" />
+    <Content Include="Themes\web-login\fonts\Asap-Regular.ttf" />
+    <Content Include="Themes\web-login\fonts\Audiowide-Regular.ttf" />
+    <Content Include="Views\login\Index.cshtml" />
+    <Content Include="Views\admin\Inbox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
